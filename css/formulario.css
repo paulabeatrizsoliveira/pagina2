@@ -1,0 +1,75 @@
+@font-face {
+   font-family: neuropol;
+   src: url(../fontes/neuropol\ x\ rg.otf);
+}
+
+body {
+   background-image: url('../img/hera imagem.png');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   height: 100vh;
+   margin: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: Arial, Helvetica, sans-serif;
+   margin: auto;
+   font-weight: lighter;
+   box-sizing: border-box;
+}
+
+.formulario {
+   padding: 20px;
+   border-radius: 10px;
+   text-align: center;
+}
+
+input::placeholder {
+   text-align: center;
+   opacity: 0.4;
+}
+
+input[type="text"],
+input[type="password"] {
+   width: 80%;
+   padding: 10px;
+   margin-bottom: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+}
+
+button {
+   background-color: #0d5aa1;
+   color: white;
+   padding: 10px 70px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   width: 87%;
+}
+
+button:hover {
+   background-color: #09AAD4;
+   transition: 400ms linear;
+}
+
+span {
+   color: white;
+   margin-left: 3px;
+}
+
+.imgFormulario {
+   width: 17px;
+}
+
+.tituloPrincipal {
+   font-family: neuropol, sans-serif;
+   font-weight: lighter;
+}
+
+p {
+   text-align: left;
+   margin-left: 25px;
+}

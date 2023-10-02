@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous" />
+  <link rel="stylesheet"
+    href="../css/styles.css" />
+  <link rel="stylesheet"
+    href="../css/menuHamburgues.css">
+  <title>Hera Sistemas</title>
+  <link rel="shortcut icon"
+    href="../img/dashboard/icons nav-bar/relatorios icon.png"
+    type="image/x-icon">
+  <link rel="stylesheet"
+    href="../css/graficos.css">
+    <style>
+      .containerForm {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+      }
+    
+      .div1,
+      .div2 {
+        width: 500px;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 200px;
+      }
+    </style>
+</head>
+
+<body id="body">
+  <div class="container">
+    <nav class="navbar">
+      <div class="nav_icon"
+        onclick="toggleSidebar()">
+      </div>
+      <div class="navbar__left">
+
+        <a href="#">Inicio</a>
+        <a href="#">Clientes</a>
+        <a class="active_link"
+          href="#">Admin</a>
+      </div>
+      <div class="navbar__right">
+        <a href="#">
+          <i class="fa fa-search"
+            aria-hidden="true"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-clock-o"
+            aria-hidden="true"></i>
+        </a>
+        <a href="#">
+          <img width="30"
+            src="../assets/avatar.svg"
+            alt="" />
+        </a>
+      </div>
+    </nav>
+
+    <main>
+      <div class="main__container">
+        <div class="main__title">
+          <img src="../assets/hello.svg"
+            alt="" />
+          <div class="main__greeting">
+            <h1>Olá, Jade!</h1>
+            <p>Bem-vindo(a) ao seu perfil administrativo!</p>
+            <p>Último Login: 01/10/2023 15:05:21</p>
+            <p>Backup Nuvens: 01/10/2021 19:31:26</p>
+          </div>
+        </div>
+        <div class="main__cards">
+          <div class="card">
+            <i class="fa fa-calendar fa-2x text-red"></i>
+            <div class="card_inner">
+              <p class="text-primary-p">Contas à Receber</p>
+              <span class="font-bold text-title">Mês: R$11.496,87</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <i class="fa fa-sharp fa-2x fa-light fa-barcode text-green"
+              aria-hidden="true"></i>
+            <div class="card_inner">
+              <p class="text-primary-p">Contas à Pagar</p>
+              <span class="font-bold text-title">Mês: R$ 121.836,46</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <i class="fa fa-2x fa-sharp fa-solid fa-cart-plus text-orange"></i>
+            <div class="card_inner">
+              <p class="text-primary-p">Vendas</p>
+              <span class="font-bold text-title">Mês: R$ 419,70</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <i class="fa fa-thumbs-up fa-2x text-green"
+              aria-hidden="true"></i>
+            <div class="card_inner">
+              <p class="text-primary-p">NF-e</p>
+              <span class="font-bold text-title">Emitidas: 3</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="main__cards">
+          <div class="card">
+            <i class="fa fa-2x fa-sharp fa-light fa-ticket text-red"
+              aria-hidden="true"></i>
+            <div class="card_inner">
+              <p class="text-primary-p">Ticket Médio</p>
+              <span class="font-bold text-title">Mês: R$419,70</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <i class="fa fa-2x fa-regular fa-truck text-lightblue"></i>
+            <div class="card_inner">
+              <p class="text-primary-p">Estoque</p>
+              <span class="font-bold text-title">Saldo: R$ 538.914.060</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <i class="fa fa-user-o fa-2x text-lightblue text-yellow"
+              aria-hidden="true"></i>
+            <div class="card_inner">
+              <p class="text-primary-p">Clientes</p>
+              <span class="font-bold text-title">Cadastrados: 1619</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts__left">
+          <div class="charts__left__title">
+            <div>
+              <h1>Gráficos</h1>
+            </div>
+          </div>
+
+          <div class="containerForm"> <!-- formulario -->
+            <div class="chart-container div1">
+              <canvas id="linhaChart"></canvas>
+            </div>
+            <div class="chart-container div2">
+              <canvas id="barraChart"></canvas>
+            </div>
+          </div> <!-- formulario -->
+
+        </div>
+
+        <div class="charts__right">
+          <div class="charts__right__title">
+            <div>
+              <h1>Relatórios</h1>
+            </div>
+          </div>
+
+          <div class="charts__right__cards">
+            <div class="card1">
+              <h1 class="tituloCard">Contas à Pagar</h1>
+              <div class="coluna">
+                <p>Hoje:<br><strong>$ 864,40</strong></p>
+                <p>Amanhã:<br><strong>$ 1.081,70</strong></p>
+                <p>Vencidas:<br><strong>$ 22.183,58</strong></p>
+              </div>
+            </div>
+
+            <div class="card2">
+              <h1 class="tituloCard">Contas à Pagar</h1>
+              <div class="coluna">
+                <p>Hoje:<br><strong>$ 3.784,04</strong></p>
+                <p>Amanhã:<br><strong>$ 6.889,28</strong></p>
+                <p>Vencidas:<br><strong>$ 1.380,70</strong></p>
+              </div>
+            </div>
+
+            <div class="card3">
+              <h1 class="tituloCard">Vendas</h1>
+              <div class="coluna">
+                <p>Hoje:<br><strong>$ 0,00</strong></p>
+                <p>Amanhã:<br><strong>$ 0,00</strong></p>
+                <p>Semana:<br><strong>$ 0,00</strong></p>
+              </div>
+            </div>
+
+            <div class="card4">
+              <h1 class="tituloCard">NF-e</h1>
+              <div class="coluna">
+                <p>Autorizadas:<br><strong>0</strong></p>
+                <p>Rejeitadas:<br><strong>1</strong></p>
+                <p>Canceladas:<br><strong>0</strong></p>
+              </div>
+            </div>
+
+            <div class="card5">
+              <h1 class="tituloCard">Ticket Médio</h1>
+              <div class="coluna">
+                <p>Hoje:<br><strong>R$ 0,00</strong></p>
+                <p>Ontem:<br><strong>R$ 0,00</strong></p>
+                <p>Semana:<br><strong>R$ 0,00</strong></p>
+              </div>
+            </div>
+
+            <div class="card6">
+              <h1 class="tituloCard">Estoque</h1>
+              <div class="coluna">
+                <p>Crítico:<br><strong>1108</strong></p>
+                <p>Quantidade:<br><strong>25.248.423</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="menu">
+      <div id="menu-bar"
+        onclick="menuOnClick()">
+        <div id="bar1"
+          class="bar"></div>
+        <div id="bar2"
+          class="bar"></div>
+        <div id="bar3"
+          class="bar"></div>
+      </div>
+      <nav class="nav"
+        id="nav">
+        <ul>
+          <h2 class="tituloNavBar">Cadastrar</h2>
+          <li>
+            <i class="fa fa-user-secret"
+              aria-hidden="true"></i>
+            <a href="#">Produtos</a>
+          </li>
+          <li>
+            <i class="fa fa-handshake-o"></i>
+            <a href="#">Pessoas</a>
+          </li>
+          <h2 class="tituloNavBar">Gestão Produtos</h2>
+          <li>
+            <i class="fa fa-sign-out"></i>
+            <a href="#">Familias de Produtos</a>
+          </li>
+          <li>
+            <i class="fa fa-calendar-check-o"></i>
+            <a href="#">Promoções</a>
+          </li>
+          <h2 class="tituloNavBar">Negociação</h2>
+          <li>
+            <i class="fa fa-money"></i>
+            <a href="#">Criar Negociação</a>
+          </li>
+          <h2 class="tituloNavBar">Relatórios</h2>
+          <h2 class="tituloNavBar">Nota Eletrônica</h2>
+          <h2 class="tituloNavBar">Financeiro</h2>
+          <h2 class="tituloNavBar">Controle Estoque</h2>
+          <h2 class="tituloNavBar">Segurança</h2>
+          <h2 class="tituloNavBar">Configurações</h2>
+          <div class="sidebar__logout">
+            <i class="fa fa-power-off"></i>
+            <a href="#"
+              class="botaoPower">Sair</a>
+          </div>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="menu-bg"
+      id="menu-bg"></div>
+
+    <script src="../js/menu-hamburguer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/graficos.js"></script>
+</body>
+
+</html>
